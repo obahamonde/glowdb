@@ -1,0 +1,6 @@
+websockets
+click
+pydantic
+base64c
+orjson
+rocksdict

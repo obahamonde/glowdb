@@ -1,0 +1,21 @@
+{"jsonrpc": "2.0", "method": "CreateTable", "params": {"table_name": "test_table"}, "id": "1"}
+{"jsonrpc": "2.0", "result": {"message": "Table created successfully"}, "id": "1"}
+{"jsonrpc": "2.0", "method": "PutItem", "params": {"table_name": "test_table", "item": {"id": "item1", "name": "Test Item", "value": 42}}, "id": "2"}
+{"jsonrpc": "2.0", "result": {"id": "item1", "name": "Test Item", "value": 42}, "id": "2"}
+{"jsonrpc": "2.0", "method": "GetItem", "params": {"table_name": "test_table", "id": "item1"}, "id": "3"}
+{"jsonrpc": "2.0", "result": {"id": "item1", "name": "Test Item", "value": 42}, "id": "3"}
+{"jsonrpc": "2.0", "method": "UpdateItem", "params": {"table_name": "test_table", "id": "item1", "updates": {"value": 43}}, "id": "4"}
+{"jsonrpc": "2.0", "result": {"id": "item1", "name": "Test Item", "value": 43}, "id": "4"}
+{"jsonrpc": "2.0", "method": "Scan", "params": {"table_name": "test_table", "limit": 25, "offset": 0}, "id": "5"}
+{"jsonrpc": "2.0", "result": [{"id": "item1", "name": "Test Item", "value": 43}], "id": "5"}
+{"jsonrpc": "2.0", "method": "Query", "params": {"table_name": "test_table", "filters": {"name": "Test Item"}, "limit": 25, "offset": 0}, "id": "6"}
+{"jsonrpc": "2.0", "result": [{"id": "item1", "name": "Test Item", "value": 43}], "id": "6"}
+{"jsonrpc": "2.0", "method": "DeleteItem", "params": {"table_name": "test_table", "id": "item1"}, "id": "7"}
+{"jsonrpc": "2.0", "result": {"message": "Item deleted successfully"}, "id": "7"}
+{"jsonrpc": "2.0", "method": "DeleteTable", "params": {"table_name": "test_table"}, "id": "8"}
+{"jsonrpc": "2.0", "result": {"message": "Table deleted successfully"}, "id": "8"}
+{"jsonrpc": "2.0", "method": "BatchGetItem", "params": {"table_name": "test_table", "ids": ["item1", "item2"]}, "id": "9"}
+{"jsonrpc": "2.0", "result": [{"id": "item1", "name": "Test Item 1", "value": 42}, {"id": "item2", "name": "Test Item 2", "value": 43}], "id": "9"}
+{"jsonrpc": "2.0", "method": "BatchWriteItem", "params": {"table_name": "test_table", "items": [{"id": "item3", "name": "Test Item 3", "value": 44}, {"id": "item4", "name": "Test Item 4", "value": 45}]}, "id": "10"}
+{"jsonrpc": "2.0", "result": [{"id": "item3", "name": "Test Item 3", "value": 44}, {"id": "item4", "name": "Test Item 4", "value": 45}], "id": "10"}
+{"jsonrpc": "2.0", "error": {"code": -32000, "message": "An error occurred while processing the request"}, "id": "error_example"}
